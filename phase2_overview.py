@@ -36,10 +36,14 @@ def process_csv(input_file, output_folder):
                 drive = directory
                 top_level_folder = 'Not Applicable'
             
+            # Extract immediate subfolder (only one level deeper than top-level folder)
+            if len(parts) > 3:
+                subfolder = parts[3]  # Only immediate subfolder
+                folder_data[(drive, top_level_folder)]['subfolders'].add(subfolder)
+            
             # Update dictionary
             folder_key = (drive, top_level_folder)
             folder_data[folder_key]['size'] += size
-            folder_data[folder_key]['subfolders'].add(directory)
             folder_data[folder_key]['files'] += 1
         
         # Prepare the output data

@@ -31,15 +31,15 @@ def process_csv(input_file, output_folder):
         folder_data[folder_key]['files'] += 1
     
     # Prepare the output data
-    output_rows = [['Server_Name', 'Drive', 'Top Level Folder', 'Data(GB)', 'Number of SubFolders', 'Number of Files']]
+    output_rows = [['"Server_Name"', '"Drive"', '"Top Level Folder"', '"Data(GB)"', '"Number of SubFolders"', '"Number of Files"']]
     for (drive, folder), data in folder_data.items():
         output_rows.append([
-            'SGSIN021MF6001P',  # Fixed Server_Name
-            drive,
-            folder,
-            round(data['size'] / (1024**3), 2),  # Convert size to GB
-            len(data['subfolders']),
-            data['files']
+            '"SGSIN021MF6001P"',  # Fixed Server_Name
+            f'"{drive}"',
+            f'"{folder}"',
+            f'"{round(data['size'] / (1024**3), 2)}"',  # Convert size to GB
+            f'"{len(data['subfolders'])}"',
+            f'"{data['files']}"'
         ])
     
     # Ensure output folder exists
@@ -52,7 +52,7 @@ def process_csv(input_file, output_folder):
     # Write to output file
     with open(output_file, 'w', encoding='utf-8') as f:
         for row in output_rows:
-            f.write('|'.join(map(str, row)) + '\n')
+            f.write('|'.join(row) + '\n')
     
     print(f"Output file saved at: {output_file}")
 

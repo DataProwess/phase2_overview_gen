@@ -2,10 +2,17 @@ import pandas as pd
 import sys
 import os
 
-def split_csv(input_file, output_prefix="python_split", max_rows=500000):
+def split_csv(input_file, output_prefix=None, max_rows=500000):
     if not os.path.exists(input_file):
         print(f"Error: File '{input_file}' not found.")
         return
+
+    # Extract filename without extension
+    base_filename = os.path.splitext(os.path.basename(input_file))[0]
+    
+    # Set output prefix if not provided
+    if output_prefix is None:
+        output_prefix = base_filename
 
     # Read the CSV in chunks, specifying the pipe ('|') as the delimiter
     chunk_iter = pd.read_csv(input_file, chunksize=max_rows, encoding="utf-8", sep="|")

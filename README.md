@@ -23,7 +23,11 @@ python script.py <file idenitty> <input_csv> <output_folder>
 ```sh
 python phase2_overview.py "file idenitty(give as per your convenience)" "D:\folder\input.csv" "D:\folder\output_folder"
 ```
-This will process `overview.csv` and generate an output file inside the `output/` folder.
+
+### Example:
+```sh
+python phase2_ovpython_csv_split.py "D:\folder\input.csv"  
+```
 
 ## Output Format
 The script generates a CSV file with the following columns:

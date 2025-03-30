@@ -26,7 +26,7 @@ python phase2_overview.py "file idenitty(give as per your convenience)" "D:\fold
 
 ### Example:
 ```sh
-python phase2_ovpython_csv_split.py "D:\folder\input.csv"  
+python python_csv_split.py "D:\folder\input.csv"  
 ```
 
 ## Output Format

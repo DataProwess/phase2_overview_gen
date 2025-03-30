@@ -24,7 +24,18 @@ def process_csv(file_identity,input_file, output_folder):
         folder_data = defaultdict(lambda: {'size': 0, 'subfolders': set(), 'files': 0})
 
         for _, row in df.iterrows():
+            # Skip empty rows
+            if row.isnull().all():
+                print(f"Skipping empty row {_}") 
+                continue  # Ignore completely empty rows
+
+            # Check for missing 'DirectoryName' values
+            if pd.isna(row['DirectoryName']):
+                print(f"Skipping row {_} due to missing DirectoryName: {row}")
+                continue
+
             directory = str(row['DirectoryName']).strip('\\')
+
             size = int(row['Length']) if row['Length'].isdigit() else 0
 
             # Extract Drive and Top-Level Folder

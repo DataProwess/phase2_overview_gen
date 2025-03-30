@@ -51,8 +51,19 @@ def process_csv(input_file, output_folder):
                 top_level_folder = 'Not Applicable'
 
             # Extract the immediate subfolder (the next level after the top-level folder)
-            subfolder = parts[3] if len(parts) > 3 else 'Not Applicable'
-            folder_data[(drive, top_level_folder)]['subfolders'].add(subfolder)
+            # subfolder = parts[3] if len(parts) > 3 else 'Not Applicable'
+            # folder_data[(drive, top_level_folder)]['subfolders'].add(subfolder)
+            
+            # Collect all subfolders beyond the top-level folder
+            folder_key = (drive, top_level_folder)
+
+            if len(parts) > 3:
+                subfolders = parts[3:]  # Everything after the top-level folder
+
+                # Add all nested subfolders uniquely
+                for i in range(len(subfolders)):
+                    folder_data[folder_key]['subfolders'].add('\\'.join(subfolders[:i+1]))
+
 
             
             # Update dictionary

@@ -40,10 +40,14 @@ def process_csv(input_file, output_folder):
 
             folder_key = (drive, top_level_folder)
 
-            # Add all subfolders beyond Top-Level
+            # Add all subfolders beyond Top-Level, excluding files
             if len(parts) > 3:
                 subfolders = ['\\'.join(parts[3:i+1]) for i in range(3, len(parts))]
+                # Remove the last entry if it's a file (has an extension)
+                if '.' in parts[-1]:  
+                    subfolders.pop()  
                 folder_data[folder_key]['subfolders'].update(subfolders)
+
 
             # Update dictionary
             folder_data[folder_key]['size'] += size

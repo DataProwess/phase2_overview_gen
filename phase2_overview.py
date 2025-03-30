@@ -24,7 +24,7 @@ def process_csv(file_identity,input_file, output_folder):
         folder_data = defaultdict(lambda: {'size': 0, 'subfolders': set(), 'files': 0})
 
         for _, row in df.iterrows():
-            directory = row['DirectoryName'].strip('\\')
+            directory = str(row['DirectoryName']).strip('\\')
             size = int(row['Length']) if row['Length'].isdigit() else 0
 
             # Extract Drive and Top-Level Folder

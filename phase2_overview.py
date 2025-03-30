@@ -31,7 +31,8 @@ def process_csv(input_file, output_folder):
             parts = directory.split('\\')
 
             if len(parts) >= 2:
-                drive = f"\\{parts[0]}\\{parts[1]}"  # Drive
+                # drive = f"\\{parts[0]}\\{parts[1]}"  # Drive
+                drive = f"\\\\{parts[0]}\\{parts[1]}"  # Drive
                 top_level_folder = parts[2] if len(parts) > 2 else 'Not Applicable'
             else:
                 drive = directory

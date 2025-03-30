@@ -5,7 +5,7 @@ import os
 import time
 from datetime import datetime
 
-def process_csv(input_file, output_folder):
+def process_csv(input_file, output_folder, file_identity):
     start_time = time.time()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_file = os.path.join(output_folder, f"process_log_{timestamp}.txt")
@@ -69,7 +69,7 @@ def process_csv(input_file, output_folder):
         os.makedirs(output_folder, exist_ok=True)
 
         # Generate timestamped filename
-        output_file = os.path.join(output_folder, f'output_{timestamp}.csv')
+        output_file = os.path.join(output_folder, f'overview_{file_identity}_{timestamp}.csv')
 
         # Write to output file
         with open(output_file, 'w', encoding='utf-8') as f:
@@ -97,6 +97,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process a pipe-separated CSV and generate a summary file.")
     parser.add_argument("input_csv", help="Path to the input CSV file")
     parser.add_argument("output_folder", help="Path to the output folder")
+    parser.add_argument("file_identity", help="A unique identifier for the output file")
 
     args = parser.parse_args()
-    process_csv(args.input_csv, args.output_folder)
+    process_csv(args.input_csv, args.output_folder, args.file_identity)
+

@@ -101,5 +101,5 @@ if __name__ == "__main__":
     
 
     args = parser.parse_args()
-    process_csv(args.input_csv, args.output_folder, args.file_identity)
+    process_csv(args.file_identity, args.input_csv, args.output_folder)
 

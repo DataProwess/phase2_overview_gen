@@ -15,7 +15,7 @@ def split_csv(input_file, output_prefix=None, max_rows=500000):
         output_prefix = base_filename
 
     # Read the CSV in chunks, specifying the pipe ('|') as the delimiter
-    chunk_iter = pd.read_csv(input_file, chunksize=max_rows, encoding="utf-8", sep="|")
+    chunk_iter = pd.read_csv(input_file, chunksize=max_rows, encoding="utf-8", sep="|", dtype=str)
     
     for i, chunk in enumerate(chunk_iter):
         output_file = f"{output_prefix}_part{i+1}.csv"

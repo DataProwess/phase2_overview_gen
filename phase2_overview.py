@@ -95,9 +95,10 @@ def process_csv(input_file, output_folder, file_identity):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process a pipe-separated CSV and generate a summary file.")
+    parser.add_argument("file_identity", help="A unique identifier for the output file")
     parser.add_argument("input_csv", help="Path to the input CSV file")
     parser.add_argument("output_folder", help="Path to the output folder")
-    parser.add_argument("file_identity", help="A unique identifier for the output file")
+    
 
     args = parser.parse_args()
     process_csv(args.input_csv, args.output_folder, args.file_identity)

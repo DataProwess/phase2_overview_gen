@@ -28,18 +28,32 @@ def process_csv(input_file, output_folder):
             size = int(row['Length']) if row['Length'].isdigit() else 0
             
             # Extract Drive and Top-Level Folder
-            parts = directory.split('\\')
+            # parts = directory.split('\\')
+            # if len(parts) >= 2:
+            #     drive = parts[0] + '\\' + parts[1]
+            #     top_level_folder = parts[2] if len(parts) > 2 else 'Not Applicable'
+            # else:
+            #     drive = directory
+            #     top_level_folder = 'Not Applicable'
+            
+            # # Extract immediate subfolder (only one level deeper than top-level folder)
+            # if len(parts) > 3:
+            #     subfolder = parts[3]  # Only immediate subfolder
+            #     folder_data[(drive, top_level_folder)]['subfolders'].add(subfolder)
+
+            parts = directory.strip('\\').split('\\')
+
             if len(parts) >= 2:
-                drive = parts[0] + '\\' + parts[1]
+                drive = '\\' + parts[0] + '\\' + parts[1]  # Drive
                 top_level_folder = parts[2] if len(parts) > 2 else 'Not Applicable'
             else:
                 drive = directory
                 top_level_folder = 'Not Applicable'
-            
-            # Extract immediate subfolder (only one level deeper than top-level folder)
-            if len(parts) > 3:
-                subfolder = parts[3]  # Only immediate subfolder
-                folder_data[(drive, top_level_folder)]['subfolders'].add(subfolder)
+
+            # Extract the immediate subfolder (the next level after the top-level folder)
+            subfolder = parts[3] if len(parts) > 3 else 'Not Applicable'
+            folder_data[(drive, top_level_folder)]['subfolders'].add(subfolder)
+
             
             # Update dictionary
             folder_key = (drive, top_level_folder)

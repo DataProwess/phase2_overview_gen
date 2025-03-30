@@ -7,17 +7,17 @@ def split_csv(input_file, output_prefix="python_split", max_rows=500000):
         print(f"Error: File '{input_file}' not found.")
         return
 
-    # Read the CSV in chunks
-    chunk_iter = pd.read_csv(input_file, chunksize=max_rows)
+    # Read the CSV in chunks, specifying the pipe ('|') as the delimiter
+    chunk_iter = pd.read_csv(input_file, chunksize=max_rows, encoding="utf-8", sep="|")
     
     for i, chunk in enumerate(chunk_iter):
         output_file = f"{output_prefix}_part{i+1}.csv"
-        chunk.to_csv(output_file, index=False)
+        chunk.to_csv(output_file, index=False, encoding="utf-8", sep="|")  # Preserve pipe delimiter
         print(f"Saved: {output_file}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python split_csv.py <full_path_to_csv>")
+        print("Usage: python split_csv.py <full_path_to_pipe_separated_csv>")
     else:
         input_file = sys.argv[1]
         split_csv(input_file)

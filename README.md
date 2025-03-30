@@ -16,14 +16,14 @@ This Python script processes a pipe-separated CSV file and generates a summary r
 
 ### Run the script:
 ```sh
-python script.py <input_csv> <output_folder>
+python script.py <file idenitty> <input_csv> <output_folder>
 ```
 
 ### Example:
 ```sh
-python phase2_overview.py "D:\phase2_overview_gen\files\MOD_File_Discovery_abi_ev1_rerun_20250329_205710 - Copy.csv" "D:\phase2_overview_gen\files"
+python phase2_overview.py "file idenitty(give as per your convenience)" "D:\folder\input.csv" "D:\folder\output_folder"
 ```
-This will process `data.csv` and generate an output file inside the `output/` folder.
+This will process `overview.csv` and generate an output file inside the `output/` folder.
 
 ## Output Format
 The script generates a CSV file with the following columns:

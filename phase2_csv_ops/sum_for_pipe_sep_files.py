@@ -30,5 +30,5 @@ def sum_length_column(input_file):
     print(f"Total length sum has been written to {output_file}")
 
 if __name__ == "__main__":
-    input_csv = "File_Discovery_abi_ev1_share_20250323_180500_EXCLUDING_HOMEDIRS.csv"  # Change this to your actual file path
+    input_csv = "File_Discovery_Corporate_failed_rerun_20250329_160647.csv"# Change this to your actual file path
     sum_length_column(input_csv)

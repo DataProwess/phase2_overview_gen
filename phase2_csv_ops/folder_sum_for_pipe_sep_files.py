@@ -25,7 +25,7 @@ def sum_length_all_csvs(directory):
 
     # Generate output file
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = f"total_length_summary_{timestamp}.txt"
+    output_file = f"total_length_summary_{input_directory}_{timestamp}.txt"
 
     with open(output_file, 'w', encoding='utf-8') as file:
         file.write(f"Total Length Sum Across All CSVs: {total_length} Bytes\n")
@@ -40,5 +40,5 @@ def sum_length_all_csvs(directory):
     print(f"Summary written to {output_file}")
 
 if __name__ == "__main__":
-    input_directory = "Bauld_Files"  # Change this to your target folder
+    input_directory = "Bauld_Files_Complete" # Change this to your target folder
     sum_length_all_csvs(input_directory)

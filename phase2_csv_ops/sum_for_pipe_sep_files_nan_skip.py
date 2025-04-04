@@ -33,5 +33,5 @@ def sum_length_column(input_file):
 
 
 if __name__ == "__main__":
-    input_csv = "File_Discovery_bauld_archive_bauldarch1_d_archive_nswact2_20250401_051233.csv"  # Change this to your actual file path
+    input_csv = "File_Discovery_bauld_bauldarch2_d_archive_aconex.csv"  # Change this to your actual file path
     sum_length_column(input_csv)

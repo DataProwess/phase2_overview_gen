@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from datetime import datetime
 
-def merge_all_csvs(directory, output_filename="merged_output.csv"):
+def merge_all_csvs(directory, output_filename="merged_output_bauld_all_4th_april.csv"):
     merged_df = pd.DataFrame()  # Empty DataFrame to store merged data
 
     for root, _, files in os.walk(directory):
@@ -23,5 +23,5 @@ def merge_all_csvs(directory, output_filename="merged_output.csv"):
     print(f"Merged {len(merged_df)} rows into {final_output_file}")
 
 if __name__ == "__main__":
-    input_directory = "Bauld_Files"  # Change this to your target folder
+    input_directory = "Bauld_Files_Complete"  # Change this to your target folder
     merge_all_csvs(input_directory)

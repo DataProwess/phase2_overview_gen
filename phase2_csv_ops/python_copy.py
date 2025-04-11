@@ -2,8 +2,8 @@ import os
 import shutil
 
 # Define source and destination folders
-source_folder = r"D:\phase2_overview_gen\phase2_csv_ops\Bauld_Files_Complete"
-destination_folder = r"D:\phase2_overview_gen\phase2_csv_ops\Bauld_Individual"
+source_folder = r"D:\phase2_overview_gen\phase2_csv_ops\Civil Tenders Archive"
+destination_folder = r"D:\phase2_overview_gen\phase2_csv_ops\civil_tenders_indi"
 
 # Ensure the destination folder exists
 os.makedirs(destination_folder, exist_ok=True)

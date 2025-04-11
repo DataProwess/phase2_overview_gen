@@ -40,5 +40,5 @@ def sum_length_all_csvs(directory):
     print(f"Summary written to {output_file}")
 
 if __name__ == "__main__":
-    input_directory = "Bauld_Files_Complete" # Change this to your target folder
+    input_directory = "rama_3" # Change this to your target folder
     sum_length_all_csvs(input_directory)

@@ -1,12 +1,12 @@
 import codecs
 
 # Define the source and destination file paths
-source_file = "File_Discovery_5GB_20250401_163301.csv"  # Change this to your actual file
-output_file = "File_Discovery_output_file_nabiac.csv"  # Pipe-separated CSV output
+source_file = "merged_bauld_ind.csv"  # Change this to your actual file
+output_file = "File_Discovery_output_file_errors.csv"  # Pipe-separated CSV output
 
 # Define line range
-start_line = 10244885   # Start copying from this line 
-end_line = 10343361    # Stop copying at this line
+start_line = 32138   # Start copying from this line 
+end_line = 32150    # Stop copying at this line
 
 # Define the header row
 header = "ServerName|FullName|Date Created|Date Modified|Owner|Authors|Last Saved By|Length|Extension|Attributes|DirectoryName|Name"

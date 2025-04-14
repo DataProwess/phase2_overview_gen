@@ -58,7 +58,7 @@ This Python script processes a pipe-separated CSV file and generates a summary r
 ```sh
 .\FileDetailAnalysis_on_individual_path.ps1 -vserver_name "svm_prod_abi_cifs_01" -path "C:\folder\sub_folder" -OutputFolder "D:\folder\output_folder"
 ```
-### For Longer Paths i.e 300 characters long, Run the script for FileDetailAnalysis_on_individual_path.ps1 but make sure to map the fileshare in "This PC":
+### For Longer Paths i.e 300 characters long, Run the same script by prefixing "\\?\" to the -path in FileDetailAnalysis_on_individual_path.ps1 but make sure to map the fileshare in "This PC":
 
 ### Example:
 ```sh

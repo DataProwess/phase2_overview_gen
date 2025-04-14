@@ -39,7 +39,7 @@ function Write-Log {
 function Write-ErrorLog {
     param ([string]$UNCPath, [string]$ProblemPath, [string]$ErrorMessage)
     $Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    $LogEntry = "$Timestamp - UNC Path: $UNCPath | Problem Path: $ProblemPath | Message: $ErrorMessage"
+    $LogEntry = "$Timestamp - UNC Path: $UNCPath | Problem Path: |$ProblemPath | Message: $ErrorMessage"
     $LogEntry | Tee-Object -FilePath $ErrorLogFile -Append
     Write-Host $LogEntry -ForegroundColor Red
 }
